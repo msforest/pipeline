@@ -1,0 +1,107 @@
+/*==========pipeline start====================*/
+.pipeline {
+  width: auto;
+  text-align: left;
+  margin: 0 50px;
+}
+.pipeline svg {
+  height: 20px;
+  width: 20px;
+  margin: 0 3px;
+  vertical-align: top;
+}
+
+.pipeline a {
+  text-decoration: none;
+  color: #2e2e2e;
+}
+.pipeline .ci-status-text {
+  width: 68px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
+  display: inline-block;
+  position: relative;
+  font-weight: 400;
+}
+.pipeline .inline {
+  display: inline-block;
+}
+.pipeline .line:nth-child(odd) .inline:not(:last-child)::after {
+  /*right-arrow*/
+  content: "";
+  position: absolute;
+  background: url("data:image/svg+xml;utf8,<svg viewBox='0 0 50 50' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><line x1 = '0' y1 = '25' x2 = '40' y2 = '25' style = 'stroke:gray; stroke-width:1' /><line x1='30' y1='15' x2='40' y2='25' style='stroke:gray; stroke-width:2' /><line x1='30' y1='35' x2='40' y2='25' style='stroke:gray; stroke-width:2' /></svg > ")
+    no-repeat;
+  width: 50px;
+  height: 50px;
+}
+
+.pipeline .line:nth-child(even) .inline:not(:last-child)::after {
+  /*left-arrow*/
+  content: "";
+  position: absolute;
+  background: url("data:image/svg+xml;utf8,<svg viewBox='0 0 50 50' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><line x1 = '5' y1 = '25' x2 = '40' y2 = '25' style = 'stroke:gray; stroke-width:1' /><line x1='5' y1='25' x2='20' y2='15' style='stroke:gray; stroke-width:2' /><line x1='5' y1='25' x2='20' y2='35' style='stroke:gray; stroke-width:2' /></svg > ")
+    no-repeat;
+  width: 50px;
+  height: 50px;
+}
+
+.pipeline .line:nth-child(odd)::after {
+  /*往右下角弯*/
+  content: "";
+  position: absolute;
+  margin-top: 25px;
+  margin-left: -25px;
+  background: url("data:image/svg+xml;utf8,<svg viewBox='0 0 50 50' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><circle cx = '0' cy = '50' r = '45' style = 'stroke:gray; stroke-width:2; fill: transparent;' /><line x1='30' y1='40' x2='45' y2='50' style='stroke:gray; stroke-width:2' /><line x1='50' y1='30' x2='45' y2='50' style='stroke:gray; stroke-width:2' /></svg > ")
+    no-repeat;
+  width: 25px;
+  height: 50px;
+}
+
+.pipeline .line:nth-child(even)::after {
+  /*往右上角弯*/
+  content: "";
+  position: absolute;
+  margin-left: -25px;
+  background: url("data:image/svg+xml;utf8,<svg viewBox='0 0 50 50' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><circle cx = '0' cy = '0' r = '45' style = 'stroke:gray; stroke-width:2; fill: transparent;' /> </svg > ")
+    no-repeat;
+  width: 25px;
+  height: 50px;
+}
+.pipeline .line:nth-child(even)::before {
+  /*往左下角弯*/
+  content: "";
+  position: absolute;
+  margin-top: 25px;
+  background: url("data:image/svg+xml;utf8,<svg viewBox='0 0 50 50' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><circle cx = '50' cy = '50' r = '45' style = 'stroke:gray; stroke-width:2; fill: transparent;' /><line x1='5' y1='45' x2='0' y2='25' style='stroke:gray; stroke-width:2' /><line x1='5' y1='45' x2='25' y2='40' style='stroke:gray; stroke-width:2' /></svg > ")
+    no-repeat;
+  width: 25px;
+  height: 50px;
+}
+
+.pipeline .line:nth-child(odd)::before {
+  /*往左上角弯*/
+  content: "";
+  position: absolute;
+  background: url("data:image/svg+xml;utf8,<svg viewBox='0 0 50 50' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><circle cx = '50' cy = '0' r = '45' style = 'stroke:gray; stroke-width:2; fill: transparent;' /> </svg > ")
+    no-repeat;
+  width: 25px;
+  height: 50px; /*margin*/
+}
+
+/*去掉第一个和最后一个的虚线*/
+.pipeline .line .inline:first-child::before,
+.pipeline .line:first-child::before,
+/* .pipeline .line:last-child::before, */
+.pipeline .line .inline.v-line::before,
+.pipeline .line .inline.v-line::after {
+  content: "";
+  height: 0 !important;
+  width: 0 !important;
+}
+.skipped svg {
+  fill: #c4c4c4;
+}
+/*==========pipeline end====================*/
